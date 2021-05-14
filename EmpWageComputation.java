@@ -4,8 +4,9 @@ public class EmpWageComputation {
 	 System.out.println("Welcome to Employee Wage Computation Program");
 //Check Employee Is Present Or Absent
              //Constants
-              int IS_FULL_TIME = 1;
-              int EMP_RATE_PER_HOUR = 20;
+               int IS_FULL_TIME = 1;
+               int IS_PART_TIME = 2;
+               int EMP_RATE_PER_HOUR = 20;
               //Variable
                 int empHrs = 0;
                 int empWage = 0;
@@ -23,5 +24,16 @@ public class EmpWageComputation {
                     empHrs = 0;
               empWage = empHrs * EMP_RATE_PER_HOUR;
               System.out.println("EmpWage: " +empWage);
-          }
-  }
+//Add Parttime Employee Wage
+                //Computation
+                double empCheck1 = Math.floor(Math.random() * 10) % 3;
+                if (empCheck1 == IS_PART_TIME)
+                        empHrs = 4;
+                else if (empCheck1 == IS_FULL_TIME)
+                        empHrs = 8;
+                else
+                        empHrs = 0;
+                empWage = empHrs * EMP_RATE_PER_HOUR;
+                System.out.println("Employee Wage: " +empWage);
+        }
+}
