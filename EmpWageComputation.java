@@ -2,6 +2,7 @@ public class EmpWageComputation {
      public static final int IS_PART_TIME = 1;
      public static final int IS_FULL_TIME = 2;
      public static final int EMP_RATE_PER_HR = 20;
+     public static final int NUM_OF_WORKING_DAYS = 2;
 
      public static void main(String[] args) {
 //Print Welcome To EmpWageComputation Program
@@ -14,6 +15,7 @@ public class EmpWageComputation {
               //Variable
                 int empHrs = 0;
                 int empWage = 0;
+                int totalEmpWage = 0;
 
              //Computation
               double empCheck = Math.floor(Math.random() * 10) % 2;
@@ -54,5 +56,24 @@ public class EmpWageComputation {
                 }
                 empWage = empHrs * EMP_RATE_PER_HOUR;
                 System.out.println("Emp-Wage: " +empWage);
+//Calculate Wage For Month
+                //Computation
+                 for(int day = 0; day < NUM_OF_WORKING_DAYS; day++) {
+                   int empCheck3 = (int) Math.floor(Math.random() * 10) % 3;
+                    switch (empCheck3) {
+                       case  2:
+                        empHrs = 4;
+                        break;
+                       case  1:
+                        empHrs = 8;
+                        break;
+                       default:
+                        empHrs = 0;
+                }
+                   empWage = empHrs * EMP_RATE_PER_HOUR;
+                   totalEmpWage = totalEmpWage + empWage;
+                   System.out.println("EmpWage: " +empWage);
          }
+         System.out.println("Total EmpWage: " + totalEmpWage);
+       }
 }
