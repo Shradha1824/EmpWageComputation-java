@@ -5,20 +5,22 @@ public class EmpWageComputation {
      public static final int NUM_OF_WORKING_DAYS = 2;
      public static final int MAX_HRS_IN_MONTH = 10;
 
-     public static void main(String[] args) {
+     public static int computeEmpWage() {
+
 //Print Welcome To EmpWageComputation Program
-	 System.out.println("Welcome to Employee Wage Computation Program");
+	      System.out.println("Welcome to Employee Wage Computation Program");
+
 //Check Employee Is Present Or Absent
              //Constants
-               int IS_FULL_TIME = 1;
-               int IS_PART_TIME = 2;
-               int EMP_RATE_PER_HOUR = 20;
+              int IS_FULL_TIME = 1;
+              int IS_PART_TIME = 2;
+              int EMP_RATE_PER_HOUR = 20;
               //Variable
-                int empHrs = 0;
-                int empWage = 0;
-                int totalEmpWage = 0;
-                int totalEmpHrs = 0;
-                int totalWorkingDays = 0;
+              int empHrs = 0;
+              int empWage = 0;
+              int totalEmpWage = 0;
+              int totalEmpHrs = 0;
+              int totalWorkingDays = 0;
 
              //Computation
               double empCheck = Math.floor(Math.random() * 10) % 2;
@@ -26,6 +28,7 @@ public class EmpWageComputation {
                     System.out.println("Employee is Present");
               else
                     System.out.println("Employee is Abscent");
+
 //Calculate Daily Employee Wage
               if (empCheck == IS_FULL_TIME)
                     empHrs = 8;
@@ -33,6 +36,7 @@ public class EmpWageComputation {
                     empHrs = 0;
               empWage = empHrs * EMP_RATE_PER_HOUR;
               System.out.println("EmpWage: " +empWage);
+
 //Add Parttime Employee Wage
                 //Computation
                 double empCheck1 = Math.floor(Math.random() * 10) % 3;
@@ -44,6 +48,7 @@ public class EmpWageComputation {
                         empHrs = 0;
                 empWage = empHrs * EMP_RATE_PER_HOUR;
                 System.out.println("Employee Wage: " +empWage);
+
 //Using Switch Stmt Calculate Employee Wage
                 //Computation
                 int empCheck2 = (int) Math.floor(Math.random() * 10) % 3;
@@ -59,7 +64,8 @@ public class EmpWageComputation {
                 }
                 empWage = empHrs * EMP_RATE_PER_HOUR;
                 System.out.println("Emp-Wage: " +empWage);
-//Calculate Wage For Month
+
+//Calculate EmpWage For Month
                 //Computation
                  for(int day = 0; day < NUM_OF_WORKING_DAYS; day++) {
                    int empCheck3 = (int) Math.floor(Math.random() * 10) % 3;
@@ -78,7 +84,8 @@ public class EmpWageComputation {
                    System.out.println("EmpWage: " +empWage);
          }
          System.out.println("Total EmpWage: " + totalEmpWage);
-//Calculate Wage till a condition of total working hours or days is reached for a month
+
+//Calculate EmpWage till a condition of total working hours or days is reached for a month
                 //Computation
                 while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS) {
                    totalWorkingDays++;
@@ -97,5 +104,28 @@ public class EmpWageComputation {
                 System.out.println("Day#: " + totalWorkingDays + " EmpHrs: " + empHrs);
          }
          System.out.println("Total EmpWage: " + totalEmpWage);
-       }
-}
+
+//Calculate Total EmpWage using class method
+	     while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS) {
+		totalWorkingDays++;
+		int empCheck5 = (int) Math.floor(Math.random() * 10) % 3;
+	          switch (empCheck5) {
+	     	        case 1:
+			  empHrs = 4;
+			case 2:
+			  empHrs = 8;
+			default:
+			  empHrs = 0;
+		  }
+		   totalEmpHrs += empHrs;
+		   System.out.println("Day#: " + totalWorkingDays + "Emp Hr: " +empHrs);
+	     }
+	      System.out.println("Total Emp Wage: " + totalEmpWage);
+              return totalEmpWage;
+	 }
+
+	 public static void main(String[] args) {
+	 computeEmpWage();
+     }
+
+   }
