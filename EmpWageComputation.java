@@ -123,10 +123,33 @@ public class EmpWageComputation {
 	     }
 	      System.out.println("Total Emp Wage: " + totalEmpWage);
               return totalEmpWage;
-	 }
 
-	 public static void main(String[] args) {
-	 computeEmpWage();
-     }
+	// public static void main(String[] args) {
+	// computeEmpWage();
+             while (totalEmpHrs <= maxHoursPerMonth && totalWorkingDays < numOfWorkingDays) {
+		totalWorkingDays++;
+		int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+		switch (empCheck) {
+		    case 1:
+		    	empHrs = 4;
+		    	break;
+		    case 2:
+		    	empHrs = 8;
+		    default:
+		    	empHrs = 0;
+		}
 
+		totalEmpHrs += empHrs;
+		System.out.println("Day#: " + totalWorkingDays + "Emp Hr: " + empHrs);
+	}
+
+	int totalEmpWage = totalEmpHrs * empRatePerHour;
+	System.out.println("Total Emp Wage for Company: " + company + " is: " + totalEmpWage);
+	return totalEmpWage;
+
+	public static void main(String[] args) {
+        computeEmpWage();
+	computeEmpWage("DMart", 20, 2, 10);
+	computeEmpWage("Reliance", 10, 4, 20);
+	}
    }
