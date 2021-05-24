@@ -150,6 +150,17 @@ class AddressBook {
 				}
 			}
 			System.out.println("Details updated successfully");
+			break;
+                                       case 3: System.out.println("Delete Details");
+
+			System.out.println("Enter first name which you want to delete from address book");
+			firstName = sc.next();
+
+			for(int i = 0; i < count; i++) {
+				if(add[i] != null && add[i].getFirstName()==firstName) {
+					add[i] = null;
+				}
+			}System.out.println("Details deleted successfully");
 			break; 
              }
            }
